@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React, { Fragment, Component } from 'react';
 import './App.css';
+import RangeInput from './Pages/RangeInput.jsx';
+import LoginPassword from './Pages/LoginPassword.jsx'
+import Films from './Pages/Films.jsx'
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Header from './Components/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Navigate to='/input' />} />
+          <Route path='/input' element={<RangeInput />} />
+          <Route path='/login' element={<LoginPassword />} />
+          <Route path='/films' element={<Films />} />
+        </Routes>
+      </>
+    );
+  }
+};
+
+
 
 export default App;
